@@ -47,7 +47,7 @@ export async function executeTests(opts: TestRunnerOpts) {
     })
 
     //==< Execute tests and grab json output >=================|
-    const testJson = await runGoTest(opts.goTestArgs, opts.pwd)
+    const testSummary = await runGoTest(opts.goTestArgs, opts.pwd)
 
     //==< Set up the outputs >=================|
 
@@ -60,7 +60,12 @@ export async function executeTests(opts: TestRunnerOpts) {
 
         status: 'completed',
         completed_at: new Date().toISOString(),
-        conclusion: 'neutral'
+        conclusion: 'neutral',
+        output: {
+            title: opts.runName,
+            summary: "Some tests were run",
+            text: testSummary
+        }
     })
 }
 
