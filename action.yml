@@ -2,6 +2,10 @@ name: "Go Test"
 description: "Run go tests"
 
 inputs:
+  pwd:
+    description: Directory
+    required: false
+
   name:
     description: Test run name
     required: false
@@ -16,10 +20,14 @@ inputs:
     description: Calculate test coverage
     default: "false"
 
+  token:
+    description: github token
+    default: ${{ secret.GITHUB_TOKEN }}
+
 outputs:
   time: # id of output
     description: "The time we greeted you"
 
 runs:
   using: "node16"
-  main: "lib/main.js"
+  main: "./lib/action.js"

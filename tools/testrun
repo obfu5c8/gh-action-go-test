@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# podman machine init --cpus 2 --rootful default
+# podman machine set --rootful default
+# podman machine start default
+
+# sudo /opt/homebrew/Cellar/podman/4.3.0/bin/podman-mac-helper install
+# podman machine stop default; podman machine start default
+
+
+
 archfix=""
 if [[ $(uname -m) == 'arm64' ]]; then
   archfix="--container-architecture linux/amd64"
