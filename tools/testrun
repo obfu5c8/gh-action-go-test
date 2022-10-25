@@ -1,0 +1,8 @@
+#!/bin/bash
+
+archfix=""
+if [[ $(uname -m) == 'arm64' ]]; then
+  archfix="--container-architecture linux/amd64"
+fi
+
+act $archfix 

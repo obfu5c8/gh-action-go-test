@@ -1,0 +1,25 @@
+name: "Go Test"
+description: "Run go tests"
+
+inputs:
+  name:
+    description: Test run name
+    required: false
+    default: Tests
+
+  packages:
+    description: "Packages to run"
+    required: false
+    default: "./..."
+
+  coverage:
+    description: Calculate test coverage
+    default: "false"
+
+outputs:
+  time: # id of output
+    description: "The time we greeted you"
+
+runs:
+  using: "node16"
+  main: "lib/main.js"
