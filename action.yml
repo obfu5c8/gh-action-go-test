@@ -22,7 +22,6 @@ inputs:
 
   token:
     description: github token
-    default: ${{ secret.GITHUB_TOKEN }}
 
 outputs:
   time: # id of output

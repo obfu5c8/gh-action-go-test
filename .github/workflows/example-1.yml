@@ -1,10 +1,10 @@
-name: Example 1
-on: [push]
+name: Pull Request
+on: [push, pull_request]
 
 jobs:
-  hello_world_job:
+  validate:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Validate
     steps:
       # To use this repository's private action,
       # you must check out the repository
@@ -14,18 +14,18 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v3
         with:
-          cache: true
-          go-version: 1.19
+          go-version-file: "./example/go.mod"
 
       - name: Install gotestfmt
         run: go install github.com/gotesttools/gotestfmt/v2/cmd/gotestfmt@latest
 
       - name: Go test
         uses: ./ # Uses an action in the root directory
-        id: hello
         with:
+          name: Unit Tests
           pwd: ./example
           packages: ./...
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       # # Use the output from the `hello` step
       # - name: Get the output time
