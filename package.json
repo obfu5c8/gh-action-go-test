@@ -4,8 +4,8 @@
   "main": "lib/main.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc --watch",
+    "build": "webpack",
+    "watch": "webpack --watch",
     "postinstall": "husky install tools/githooks",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable"

@@ -21,7 +21,6 @@ jobs:
 
       - name: Go test
         uses: ./ # Uses an action in the root directory
-        id: hello
         with:
           name: My Test Run
           pwd: ./example
